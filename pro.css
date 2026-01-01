@@ -32,3 +32,9 @@
     transform: translateX(5px);
     color: #2a4fd8;
 }
+
+
+.mtbox{margin-top:17px;padding:15px;border-radius:10px;box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;background-color: #ffffff; opacity: 1; background-image: radial-gradient(#e7e7e7 2px, #ffffff 2px); background-size: 40px 40px; } .box-info{padding:2px;border:1px solid #f0f0f0;margin-top:12px;border-radius:5px;background-color:#FFFFFFBF; } .mtbox h2{background:#f7176a;border-radius:5px;padding:8px 20px!important;margin:0!important;font-size:17px!important;color:#fff;top:-20px;font-weight:bold;left:30px;text-transform:uppercase;text-align: center;}
+/*color by Gradient Hunt */.mtbox.yellow h2{background-image: radial-gradient( circle 957px at 8.7% 50.5%, rgba(246,191,13,1) 0%, rgba(249,47,47,1) 90% );} .mtbox.red h2{background-image: radial-gradient( circle 905.6px at 4.9% 7.9%, rgba(218,0,0,1) 14.1%, rgba(168,2,144,1) 65%, rgba(102,2,110,1) 90% );} .mtbox.blue h2{background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(37,145,251,0.98) 0.1%, rgba(0,7,128,1) 99.8% );} .mtbox.black h2{background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );} .mtbox.pink h2{background-image: radial-gradient( circle 602px at 2.1% 5.1%, rgba(233,0,120,1) 0%, rgba(0,0,0,1) 90.1% );}
+/* darkmode color */
+.drK .mtbox{box-shadow: rgba(50, 50, 93, 225.25) 0px 2px 5px -1px, rgba(225, 225, 225.3) 0px 1px 3px -1px;background-color:#292929;background-image: radial-gradient(#363434 2px, #141313 2px); background-size: 40px 40px; }.drK .box-info{background-color: #363535B5;}
