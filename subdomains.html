@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Blogger Subdomains On Sale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin='anonymyous'/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f8fafc;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.card{background:#fff;border-radius:12px;padding:40px;max-width:500px;width:100%;box-shadow:0 4px 20px rgba(0,0,0,0.05);border:1px solid #e2e8f0}
+.loading{text-align:center;padding:40px 0}
+.loading-spinner{border:4px solid #f3f3f3;border-top:4px solid #3b82f6;border-radius:50%;width:40px;height:40px;animation:spin 1s linear infinite;margin:0 auto 20px}
+@keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.subdomain{text-align:center;margin-bottom:30px;padding-bottom:24px;border-bottom:1px solid #e2e8f0}
+.subdomain h2{color:#0f172a;font-size:24px;font-weight:600;margin-bottom:8px}
+.subdomain p{color:#64748b;font-size:15px}
+.links{margin:30px 0}
+.link-item{display:flex;align-items:center;padding:12px 0;border-bottom:1px solid #f1f5f9}
+.link-item:last-child{border-bottom:none}
+.link-item i{color:#3b82f6;margin-right:12px;font-size:13px}
+.link-info{display:flex;flex-direction:column}
+.link-domain{color:#334155;font-size:15px;font-weight:500;margin-bottom:4px}
+.link-website{color:#64748b;font-size:13px}
+.contact{text-align:center;margin-top:32px;padding-top:28px;border-top:1px solid #e2e8f0}
+.contact p{color:#475569;margin-bottom:16px;font-size:14px}
+.telegram{display:inline-flex;align-items:center;background:#0088cc;color:white;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;transition:all .2s ease}
+.telegram:hover{background:#0077b5;transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,136,204,0.15)}
+.telegram i{margin-right:10px;font-size:18px}
+.error-message{text-align:center;padding:40px 20px;color:#ef4444}
+.error-message i{font-size:48px;margin-bottom:20px;color:#fca5a5}
+.retry-button{margin-top:20px;padding:10px 20px;background:#3b82f6;color:white;border:none;border-radius:6px;cursor:pointer;font-weight:500;transition:background .2s ease}
+.retry-button:hover{background:#2563eb}
+@media(max-width:640px){.card{padding:24px}}
+</style>
+</head>
+<body>
+<div class="card">
+<div id="loading" class="loading">
+<div class="loading-spinner"></div>
+<p class="loading-text">Loading subdomains...</p>
+</div>
+<div id="content" style="display:none">
+<div class="subdomain">
+<h2 id="header-title"></h2>
+<p id="header-subtitle"></p>
+</div>
+<div id="links-container" class="links"></div>
+<div class="contact">
+<p id="contact-message"></p>
+<a id="telegram-link" class="telegram" target="_blank">
+<i class="fab fa-telegram"></i>
+<span id="telegram-username"></span>
+</a>
+</div>
+</div>
+<div id="error" class="error-message" style="display:none">
+<i class="fas fa-exclamation-triangle"></i>
+<p>Failed to load content. Please check your internet connection and try again.</p>
+<button class="retry-button" onclick="loadData()">Retry</button>
+</div>
+</div>
+<script>
+async function loadData(){
+const e=document.getElementById("loading"),
+t=document.getElementById("content"),
+l=document.getElementById("error");
+e.style.display="block",
+t.style.display="none",
+l.style.display="none";
+try{
+const r=await fetch("https://mrlinshen0.github.io/load.json");
+if(!r.ok)throw new Error(`HTTP error! status: ${r.status}`);
+const a=await r.json();
+document.title=a.pageTitle,
+document.getElementById("header-title").textContent=a.header.title,
+document.getElementById("header-subtitle").textContent=a.header.subtitle;
+const c=document.getElementById("links-container");
+c.innerHTML="",
+a.subdomains.forEach(e=>{
+const t=document.createElement("div");
+t.className="link-item",
+t.innerHTML=`<i class="fas fa-link"></i><div class="link-info"><span class="link-domain">${e.domain}</span><span class="link-website">${e.website}</span></div>`,
+c.appendChild(t)
+}),
+document.getElementById("contact-message").textContent=a.contact.message;
+const i=document.getElementById("telegram-link");
+i.href=a.contact.telegramUrl,
+i.innerHTML=`<i class="fab fa-telegram"></i> ${a.contact.telegramUsername}`,
+e.style.display="none",
+t.style.display="block"
+}catch(r){
+console.error("Error loading data:",r),
+e.style.display="none",
+l.style.display="block"
+}
+}
+document.addEventListener("DOMContentLoaded",loadData);
+</script>
+</body>
+</html>
