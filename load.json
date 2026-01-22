@@ -1,0 +1,42 @@
+{
+  "pageTitle": "Subdomains Sale",
+  "header": {
+    "title": "these subdomain on sale",
+    "subtitle": "with combo package of"
+  },
+  "subdomains": [
+    {
+      "domain": "app.techdomain.com",
+      "website": "TechDomain Solutions"
+    },
+    {
+      "domain": "api.business.io",
+      "website": "Business Integrations"
+    },
+    {
+      "domain": "store.premium.net",
+      "website": "Premium Store Network"
+    },
+    {
+      "domain": "tools.digital.co",
+      "website": "Digital Tools Platform"
+    },
+    {
+      "domain": "cloud.service.org",
+      "website": "Cloud Service Organization"
+    },
+    {
+      "domain": "auth.security.dev",
+      "website": "Security Authentication Services"
+    },
+    {
+      "domain": "docs.knowledge.base",
+      "website": "Knowledge Base Documentation"
+    }
+  ],
+  "contact": {
+    "message": "Contact on Telegram:",
+    "telegramUsername": "@domainseller",
+    "telegramUrl": "https://t.me/domainseller"
+  }
+}
